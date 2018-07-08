@@ -11807,28 +11807,25 @@ div#notebook {
 <li>2.2.1 Float Data Types for Tweet ID<blockquote><p>Some ID columns' data type is float64, which makes the value in exponential expressions. In order to deal with this problem, I converted the datatype to string.</p>
 </blockquote>
 </li>
-<li>2.2.2 Duplicate Tweets<blockquote><p>I removed one of each duplicate tweets in order to have only unique tweet IDs in the dataset.</p>
+<li>2.2.2 Unnecessary Retweet Observations<blockquote><p>Our scope of analysis is only initial tweets, not retweets. I dropped the retweets, which always start with the string 'RT'.</p>
 </blockquote>
 </li>
-<li>2.2.3 Unnecessary Retweet Observations<blockquote><p>Our scope of analysis is only initial tweets, not retweets. I dropped the retweets, which always start with the string 'RT'.</p>
+<li>2.2.3 Empty images<blockquote><p>There were tweets without images. Since our scope of analysis is only on the tweets with images, I dropped the tweets without images.</p>
 </blockquote>
 </li>
-<li>2.2.4 Empty images<blockquote><p>There were tweets without images. Since our scope of analysis is only on the tweets with images, I dropped the tweets without images.</p>
+<li>2.2.4 Unnecessary Retweet Columns<blockquote><p>Columns 'retweeted_status_id', 'retweeted_status_user_id ', and 'retweeted_status_timestamp' don't have any values, since I deleted all the retweet observations. I dropped these unnecessary columns.</p>
 </blockquote>
 </li>
-<li>2.2.5 Unnecessary Retweet Columns<blockquote><p>Columns 'retweeted_status_id', 'retweeted_status_user_id ', and 'retweeted_status_timestamp' don't have any values, since I deleted all the retweet observations. I dropped these unnecessary columns.</p>
+<li>2.2.5 String Data Type for Timestamp columns<blockquote><p>'timestamp' columns' data type was string. I Changed the data type to datetime in order to ease further analysis. Since all the timestamp ends with +0000, I could assume that all the timestamp of dataset follows the same timezone.</p>
 </blockquote>
 </li>
-<li>2.2.6 String Data Type for Timestamp columns<blockquote><p>'timestamp' columns' data type was string. I Changed the data type to datetime in order to ease further analysis. Since all the timestamp ends with +0000, I could assume that all the timestamp of dataset follows the same timezone.</p>
+<li>2.2.6 Source Column with Entire HTML Link Code<blockquote><p>The column 'source' contains entire HTML link code. I extracted only the string that shows source. Since there are only 4 sources in our dataset, I also changed the data type to category.</p>
 </blockquote>
 </li>
-<li>2.2.7 Source Column with Entire HTML Link Code<blockquote><p>The column 'source' contains entire HTML link code. I extracted only the string that shows source. Since there are only 4 sources in our dataset, I also changed the data type to category.</p>
+<li>2.2.7 Wrong Rating Indicators<blockquote><p>Rating numerator and denominator columns were from just the first strings that matches the pattern (digits)/(digits) in the text. Since some ratings had wrong indicators, I fixed it with correct values.</p>
 </blockquote>
 </li>
-<li>2.2.8 Wrong Rating Indicators<blockquote><p>Rating numerator and denominator columns were from just the first strings that matches the pattern (digits)/(digits) in the text. Since some ratings had wrong indicators, I fixed it with correct values.</p>
-</blockquote>
-</li>
-<li>2.2.9 String DataType for Retweet and Favorite Count<blockquote><p>I fixed retweet count and favorite count data types to string for further analysis.</p>
+<li>2.2.8 String DataType for Retweet and Favorite Count<blockquote><p>I fixed retweet count and favorite count data types to string for further analysis.</p>
 </blockquote>
 </li>
 </ul>
